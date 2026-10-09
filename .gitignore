@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.venv/
+.runtime/
+data/
+checkpoints/
+outputs/
+*.log

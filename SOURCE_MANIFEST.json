@@ -1,0 +1,137 @@
+{
+  "source_description": "StreamDelta_current_minimal; source read only",
+  "files": [
+    {
+      "source": "scripts/benchmark/ovo_script.py",
+      "release": "core/video_processor.py",
+      "source_sha256": "43c66fc559524a85f2befe0cdc0294f1ddbb8cf99598b868b1e31bbcb85342da",
+      "release_sha256": "5dcde5c76ac0eeadb9e831024cc2861f9511d1dd6ca6d717c7557787c8142b1a"
+    },
+    {
+      "source": "scripts/benchmark/ovo_agent_shared.py",
+      "release": "core/worker.py",
+      "source_sha256": "c53512271b71338d2199c78c277edfb75fa55325cdfdf1db05ca351d946ea3e2",
+      "release_sha256": "0297fa4a8dc319f8342cf06cc844bde7e72adf4ba7e089bf7ec4e2bb4118c843"
+    },
+    {
+      "source": "scripts/benchmark/ovo_agent.py",
+      "release": "core/agent.py",
+      "source_sha256": "3eb271cb2a8188982f70a3f8f3853ff5d710fa16d2d1664bb8ca2c3323ba6f3d",
+      "release_sha256": "5be0571281ad451c3657e83e619e083df04b8dd5de7402badd7835c06b7f3808"
+    },
+    {
+      "source": "scripts/benchmark/tools/temporal.py",
+      "release": "core/tools/temporal.py",
+      "source_sha256": "1834f702b7987c0b2fe90a9dc2853bccbad018167b3e0ffdbe55d11faf2a8360",
+      "release_sha256": "1834f702b7987c0b2fe90a9dc2853bccbad018167b3e0ffdbe55d11faf2a8360"
+    },
+    {
+      "source": "scripts/benchmark/tools/efficiency.py",
+      "release": "core/tools/efficiency.py",
+      "source_sha256": "dff32635b6a445a773fde60cc2bfa1fc061b5863b419a9b5589e00d777d87ab2",
+      "release_sha256": "dff32635b6a445a773fde60cc2bfa1fc061b5863b419a9b5589e00d777d87ab2"
+    },
+    {
+      "source": "scripts/benchmark/tools/memory.py",
+      "release": "core/tools/memory.py",
+      "source_sha256": "f2a3c824e70fb2d1ab397eef36bad7920b5080c6e22af579dab262b4776b7636",
+      "release_sha256": "ad7755cc0364a0af306e62f8e5fe5a070d4b0fa0c740af6da18716c26d9e87b5"
+    },
+    {
+      "source": "scripts/benchmark/tools/audio.py",
+      "release": "core/tools/audio.py",
+      "source_sha256": "feb004dbcbb4b8ac82bf4276564de102deb555e9272153c532b5b0fde1533e65",
+      "release_sha256": "fdde7a9eb237cf300328a183efaa0753bd80bc42127f6ac5ada9d3d8884e21d0"
+    },
+    {
+      "source": "scripts/benchmark/tools/event_predicate.py",
+      "release": "core/tools/event_predicate.py",
+      "source_sha256": "224a7cb4cedfc7afed16e3207b780eb237b798b968fa69d710a31147a5a149cc",
+      "release_sha256": "456675e8badd552010debe3d9d6c1dd39788b03103a852e300f69a027ffe49e4"
+    },
+    {
+      "source": "scripts/benchmark/tools/__init__.py",
+      "release": "core/tools/__init__.py",
+      "source_sha256": "8670333f72a8673941d13a2815bde44674cd18fcf722a8226e3b2de9f653fabc",
+      "release_sha256": "3aa75afea7e7dad7f6c1df9c46d330f3fc3d09b2b9d358e62e9f12adde8a0295"
+    },
+    {
+      "source": "scripts/benchmark/tools/track.py",
+      "release": "core/tools/track.py",
+      "source_sha256": "fdf20a95e90cd5a7577a2aa85aa71fa7825b38e9532cb15f1ca2f379795a0402",
+      "release_sha256": "5da007ea66b48bba5b21ce0ce25867bdb1ffaf602f427a9e1954788b7689c219"
+    },
+    {
+      "source": "scripts/benchmark/tools/crr_typed_relation.py",
+      "release": "core/tools/crr_typed_relation.py",
+      "source_sha256": "c29bf9310c1beffbc67ca7f5cbc3896e3b86b11eab52feb75b33c48b33009274",
+      "release_sha256": "c29bf9310c1beffbc67ca7f5cbc3896e3b86b11eab52feb75b33c48b33009274"
+    },
+    {
+      "source": "scripts/benchmark/tools/spatial.py",
+      "release": "core/tools/spatial.py",
+      "source_sha256": "53a2e97efab04be649bfc7354021f1d672dbc64efd393893d05ab249ee5da08f",
+      "release_sha256": "ebff52e790bdf4d90aa541fb5ef2341ace39785cf9087e56aaaddb91c62adc75"
+    },
+    {
+      "source": "scripts/benchmark/tools/verification.py",
+      "release": "core/tools/verification.py",
+      "source_sha256": "1c34b5e00594d55657ca0de406c9b44e1c96a8b5061848007a5f41fdc16b049a",
+      "release_sha256": "fd478f338ebffa71cf18cf56fdb161ea12d319a42d7ac41eacf417573b05d037"
+    },
+    {
+      "source": "scripts/benchmark/tools/base.py",
+      "release": "core/tools/base.py",
+      "source_sha256": "6bf92abd6f334a095efada77a08738ce7bc3a772f9cc47fe618daddc9ea775ae",
+      "release_sha256": "bac162400317c4eeb5ff2a53d5ac3d813d9a95e40b9ddcb9a7b65aa3b27d2247"
+    },
+    {
+      "source": "scripts/benchmark/tools/memory_graph.py",
+      "release": "core/tools/memory_graph.py",
+      "source_sha256": "f3e5ef7c6c61fbedc7d6cdc9daaa0b7e80ea2298b693f823eb2cc46acc3127a6",
+      "release_sha256": "f3e5ef7c6c61fbedc7d6cdc9daaa0b7e80ea2298b693f823eb2cc46acc3127a6"
+    },
+    {
+      "source": "scripts/benchmark/tools/meta.py",
+      "release": "core/tools/meta.py",
+      "source_sha256": "3f6d801f698396a07cfccb5f237f43204d1403d3d0951cf34f3c2f6ee36c395d",
+      "release_sha256": "3f6d801f698396a07cfccb5f237f43204d1403d3d0951cf34f3c2f6ee36c395d"
+    },
+    {
+      "source": "scripts/data/prepare_ovobench.py",
+      "release": "scripts/prepare_ovobench.py",
+      "source_sha256": "466f3284bc2f08a3cf7f98d25dbe34747c7012ca85a300c8e3aabc4e05aa169c",
+      "release_sha256": "08e523a679d3c056cc2e75f3983befc159cc7e406d0ae5ea1b31124e50303478"
+    },
+    {
+      "source": "scripts/data/prepare_streamingbench.py",
+      "release": "scripts/prepare_streamingbench.py",
+      "source_sha256": "91e02c64b2bc33741fadf7c9c34449d14cf7bf5aef65d62d52ec2d98fe8f29d1",
+      "release_sha256": "bad965137324b44a593c5b42c9e307bff0a409f4d56c13ee384ff429a92a3caa"
+    },
+    {
+      "source": "scripts/ovobench/audit_run.py",
+      "release": "scripts/score_ovobench.py",
+      "source_sha256": "174c89fbad7929e9ba6550faa6227b109e834a277cdefbc4e2cfda7ad7d89b26",
+      "release_sha256": "174c89fbad7929e9ba6550faa6227b109e834a277cdefbc4e2cfda7ad7d89b26"
+    },
+    {
+      "source": "scripts/streamingbench/audit_run.py",
+      "release": "scripts/score_streamingbench.py",
+      "source_sha256": "03ca3c88787fe652be3b62a53670f750756b8632cd41693f994e40be56ba7760",
+      "release_sha256": "03ca3c88787fe652be3b62a53670f750756b8632cd41693f994e40be56ba7760"
+    },
+    {
+      "source": "LICENSE",
+      "release": "LICENSE",
+      "source_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "release_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "source": "swift/infer_engine/vllm_engine.py",
+      "release": "compat/swift/infer_engine/vllm_engine.py",
+      "source_sha256": "4b7f181dff902a58ef892e5a0021289e9bbbbb713ddaac2eb1b5f7bbfb590452",
+      "release_sha256": "4b7f181dff902a58ef892e5a0021289e9bbbbb713ddaac2eb1b5f7bbfb590452"
+    }
+  ]
+}
