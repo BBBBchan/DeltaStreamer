@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>DeltaStreamer · Video workspace</title>
+  <link rel="icon" type="image/svg+xml" href="/static/logo-mark.svg">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="DeltaStreamer home"><img src="/static/logo-mark.svg" alt="" width="43" height="43"><span><strong>Delta</strong>Streamer</span></a>
+    <span class="tagline" data-i18n="tagline">Video, understood over time.</span>
+    <div class="header-actions"><span class="connection-chip" id="connection-chip"><i></i><span id="connection-label">Connecting</span></span><div class="language-switch" aria-label="Language"><button id="lang-en" type="button" class="active" aria-pressed="true">EN</button><button id="lang-zh" type="button" aria-pressed="false">中文</button></div></div>
+  </header>
+  <main class="workspace">
+    <div class="workspace-heading"><div><div class="eyebrow" data-i18n="workspace">VIDEO WORKSPACE</div><h1 data-i18n="heading">Bring a video. Ask what matters.</h1><p data-i18n="subtitle">Observe the stream, remember what changes, and look for evidence.</p></div><div class="model-summary"><span data-i18n="connectedModel">CONNECTED MODEL</span><strong id="model-name">—</strong><small id="backend-name">—</small><button id="check-connection" class="text-button" type="button" data-i18n="checkConnection">Check connection</button></div></div>
+    <div class="connection-notice hidden" id="connection-notice" role="status"></div>
+    <div class="resume-notice hidden" id="resume-notice"><span data-i18n="savedRun">A previous run is available.</span><button id="resume-button" class="text-button" type="button" data-i18n="resume">View run</button><button id="dismiss-resume" type="button" class="dismiss" aria-label="Dismiss">×</button></div>
+    <div class="pipeline" id="pipeline" aria-label="Agent workflow"></div>
+    <div class="work-grid">
+      <section class="watch-column" aria-label="Video and question">
+        <section class="card video-card">
+          <div class="card-heading"><div class="section-title"><span class="section-icon purple-icon">▷</span><h2 data-i18n="video">Your video</h2></div><button id="replace-video" class="text-button hidden" type="button" data-i18n="replaceVideo">Choose another video</button></div>
+          <input id="video-input" type="file" accept="video/*,.mp4,.mov,.mkv,.avi,.webm,.m4v" hidden>
+          <div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="Upload a video">
+            <div class="upload-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><rect x="5" y="10" width="38" height="28" rx="8" stroke="currentColor" stroke-width="1.6"/><path d="m20 18 10 6-10 6V18Z" fill="currentColor"/><path d="M9 6h21M4 43h17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+            <h3 data-i18n="dropTitle">Drop your video here</h3><p data-i18n="dropDescription">or browse files from your computer</p><span class="browse-button" data-i18n="browse">Browse files</span><small data-i18n="formats">MP4, MOV, WebM and other FFmpeg-supported videos</small>
+          </div>
+          <div id="upload-status" class="upload-status hidden" role="status"><div><strong id="upload-name"></strong><span id="upload-percent">0%</span></div><progress id="upload-progress" value="0" max="100"></progress><p id="upload-message"></p></div>
+          <div class="video-stage hidden" id="video-stage"><video id="video-player" controls playsinline preload="metadata"></video></div>
+          <div class="video-info hidden" id="video-info"><span id="video-name"></span><span id="video-details"></span></div>
+        </section>
+        <form class="card question-card" id="question-form">
+          <div class="card-heading"><div class="section-title"><span class="section-icon purple-icon">?</span><h2 data-i18n="question">Ask a question</h2></div><span class="live-label"><i></i><span data-i18n="realInference">Model inference</span></span></div>
+          <div class="question-body"><label class="sr-only" for="question-input" data-i18n="question">Ask a question</label><textarea id="question-input" rows="3" maxlength="8000" data-i18n-placeholder="questionPlaceholder" placeholder="What changed in the video?" required></textarea>
+            <div class="query-time-row"><label for="query-time" data-i18n="questionTime">Question time</label><div class="time-input"><input id="query-time" type="number" min="0" step="0.1" value="0" disabled><span data-i18n="seconds">s</span></div><button id="use-player-time" class="text-button" type="button" disabled data-i18n="usePlayerTime">Use player position</button></div>
+            <p class="input-hint" data-i18n="timeHint">The agent observes the video up to this timestamp before receiving your question.</p>
+            <div class="question-actions"><span id="ask-hint" data-i18n="uploadFirst">Upload a video to get started.</span><button class="primary-button" id="ask-button" type="submit" disabled><span data-i18n="ask">Ask DeltaStreamer</span><span aria-hidden="true">↗</span></button></div>
+          </div>
+        </form>
+        <section id="run-status" class="card run-status hidden" aria-live="polite"><div class="run-status-top"><div><span class="eyebrow" data-i18n="progress">RUN PROGRESS</span><h3 id="run-phase"></h3></div><button id="cancel-run" type="button" class="quiet-button" data-i18n="cancel">Cancel run</button></div><progress id="run-progress" max="100"></progress><p id="run-message"></p><span id="run-id" class="run-id"></span></section>
+        <div class="error-notice hidden" id="error-notice" role="alert"></div>
+      </section>
+      <aside class="reason-column" aria-label="Answer and evidence">
+        <section class="answer-card" id="answer-card"><div class="answer-heading"><span class="answer-icon" aria-hidden="true">✓</span><h2 data-i18n="answer">Answer</h2><button class="text-button hidden" id="copy-answer" type="button" data-i18n="copy">Copy</button></div><p id="answer-text" data-i18n="answerEmpty">Your answer will appear here, grounded in the video.</p></section>
+        <section class="card memory-card"><div class="card-heading"><div class="section-title"><span class="section-icon purple-icon">▥</span><h2 data-i18n="memory">Structured memory</h2></div><span id="memory-count" class="count-badge">0</span></div><div class="memory-tabs" id="memory-tabs" role="tablist" aria-label="Memory level"></div><div id="memory-content" class="record-list" role="tabpanel"></div><div class="delta-box"><div class="delta-heading"><span class="delta-symbol" aria-hidden="true">Δ</span><h3 data-i18n="delta">Visual changes</h3><span id="delta-count" class="count-badge">0</span></div><div id="delta-content" class="delta-list"></div></div></section>
+        <section class="card plan-card"><div class="card-heading"><div class="section-title"><span class="section-icon teal-icon">⌘</span><h2 data-i18n="plan">Evidence-driven plan</h2></div><span id="plan-count" class="count-badge">0</span></div><div id="plan-content" class="record-list plan-list"></div></section>
+        <p class="output-note" data-i18n="outputNote">Memory and plans show model outputs in their original language.</p>
+      </aside>
+    </div>
+    <footer><span data-i18n="footer">Continuous observation. Structured memory. Active reasoning.</span><span>DeltaStreamer</span></footer>
+  </main>
+  <div class="toast hidden" id="toast" role="status"></div>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>

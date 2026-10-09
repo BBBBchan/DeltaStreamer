@@ -6,3 +6,11 @@ data/
 checkpoints/
 outputs/
 *.log
+.venv-model/
+.venv-demo/
+.pytest_cache/
+models/
+demo/.data/
+demo/.env*
+!demo/.env.example
+!demo/.env.remote.example

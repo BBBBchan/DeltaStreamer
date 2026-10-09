@@ -1,6 +1,6 @@
 <div align="center">
 
-# DeltaStreamer
+<img src="assets/deltastreamer-logo.svg" width="430" alt="DeltaStreamer">
 
 ### Towards Human-Like Agentic Streaming Video Understanding
 
@@ -11,11 +11,11 @@
 <sup>2</sup> ByteDance Inc. &emsp; <sup>3</sup> IQuest Research<br>
 <sup>4</sup> Institute of Automation, Chinese Academy of Sciences
 
-[![License](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-CC_BY--NC_4.0-blue.svg)](LICENSE)
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
 ![Framework](https://img.shields.io/badge/Framework-vLLM%20%2B%20ms--swift-green)
 
-**[Overview](#overview) · [Getting Started](#getting-started) · [Evaluation](#evaluation) · [Results](#results) · [Citation](#citation)**
+**[Overview](#overview) · [Interactive Demo](demo/README.md) · [Getting Started](#getting-started) · [Evaluation](#evaluation) · [Results](#results) · [Citation](#citation)**
 
 </div>
 
@@ -46,6 +46,12 @@ The first example uses recorded changes to recover an action sequence. In the se
 <div align="center">
   <img src="assets/qualitative_cases.png" width="100%" alt="Two paper examples showing change-aware memory and query-driven recovery of missing visual details.">
 </div>
+
+## Interactive Demo
+
+Upload your own video, choose when to ask a question, and inspect the agent's observations, visual deltas, structured memory, plan and answer in an English or Chinese interface. The demo uses the repository's agent with either a locally served vision model or a remote OpenAI-compatible vision API.
+
+**[Deployment guide](demo/README.md) · [中文部署说明](demo/README.zh-CN.md)** — model download, local/API configuration, video upload and interactive questions are documented in the independent `demo/` folder.
 
 ## Getting Started
 
@@ -182,6 +188,7 @@ DeltaStreamer/
 │   ├── video_processor.py    # Streaming inputs and benchmark helpers
 │   └── tools/                # Memory, replay, verification, crop, tracking, ASR
 ├── compat/swift/             # Inference compatibility file for ms-swift
+├── demo/                     # Upload UI, HTTP model adapter, deployment guides
 ├── scripts/
 │   ├── setup_runtime.py
 │   ├── prepare_ovobench.py
@@ -226,7 +233,7 @@ The arXiv link and identifier will be added when available.
 
 ## License
 
-This code is released under the [Apache-2.0 License](LICENSE). ModelScope copyright notices are retained in the compatibility file. Third-party models and datasets remain subject to their own licenses.
+DeltaStreamer is licensed under [CC BY-NC 4.0](LICENSE). The ms-swift compatibility code retains its [Apache-2.0 license](compat/LICENSE) and ModelScope copyright notices. Bundled Manrope fonts retain their [SIL Open Font License](demo/static/fonts/Manrope-OFL.txt). Third-party dependencies, models and datasets remain subject to their own licenses.
 
 ## Contact
 

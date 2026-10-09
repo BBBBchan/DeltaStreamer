@@ -1,0 +1,11 @@
+# CPU web/transport environment; model serving uses a separate vLLM environment.
+# Install CPU torch separately as documented in README.md (required by core).
+fastapi==0.123.10
+uvicorn>=0.34,<1
+python-multipart>=0.0.20,<1
+python-dotenv>=1.1,<2
+httpx>=0.28,<1
+numpy==1.26.4
+opencv-python-headless==4.11.0.86
+Pillow>=11,<13
+json-repair>=0.61,<1
