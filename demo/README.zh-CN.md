@@ -4,9 +4,11 @@
 
 上传视频后，系统会调用视觉模型观察画面变化、组织记忆，再根据问题生成计划、检索证据并回答。界面展示此次运行产生的观察、记忆、计划和证据，**不是宣发视频中的预录轨迹或预设答案**。
 
-可以选择本地模型或远程视觉 API。使用远程 API 时，不需要下载 Qwen3.6-27B，也不需要在网页服务器上安装 GPU 推理环境。
+可以选择本地模型或远程视觉 API。本地支持使用 Qwen3.6-27B，也提供 Qwen3.5 小模型的配置示例。使用远程 API 时，不需要下载模型，也不需要在网页服务器上安装 GPU 推理环境。
 
 ## 方案一：下载并部署本地模型
+
+只需选择一个模型。想使用更小的模型和单卡配置，可以直接查看 [2B / 4B / 9B 示例](#3-可选换用更小的视觉模型)，不需要先下载 27B。
 
 ### 1. 下载完整模型
 
@@ -52,6 +54,59 @@ curl --fail http://127.0.0.1:8000/v1/models
 ```
 
 输出应包含 `DeltaStreamer-VLM`。如果网页后端与模型服务不在同一机器，后端应配置可访问的模型服务器地址；`127.0.0.1` 始终指运行该进程的机器。跨机器连接建议使用内网或带认证的隧道。
+
+### 3. 可选：换用更小的视觉模型
+
+本地资源有限时，可以选择以下官方后训练模型，三者均包含视觉编码器，能够接收 Demo 的视频帧输入。**可先尝试 4B 配置**；2B 的模型规模更小，9B 则提供更大一些的选择。以下为配置示例，**尚未在 DeltaStreamer 中完成这些小模型的端到端实测**，其准确率和耗时不代表论文汇报的结果。
+
+| 模型 | 规模 | 本地目录 |
+| --- | --- | --- |
+| [Qwen/Qwen3.5-2B](https://huggingface.co/Qwen/Qwen3.5-2B) | 2B | `models/Qwen3.5-2B` |
+| [Qwen/Qwen3.5-4B](https://huggingface.co/Qwen/Qwen3.5-4B) | 4B | `models/Qwen3.5-4B` |
+| [Qwen/Qwen3.5-9B](https://huggingface.co/Qwen/Qwen3.5-9B) | 9B | `models/Qwen3.5-9B` |
+
+在仓库根目录执行以下命令；如果已有模型环境，可跳过创建步骤。选择下载其中**一个**模型即可，以 4B 为例：
+
+```bash
+python3 -m venv .venv-model
+source .venv-model/bin/activate
+python -m pip install --upgrade pip
+python -m pip install "huggingface_hub>=0.34" uv
+hf download Qwen/Qwen3.5-4B --local-dir models/Qwen3.5-4B
+uv pip install "vllm==0.19.1" --torch-backend=auto
+
+CUDA_VISIBLE_DEVICES=0 vllm serve models/Qwen3.5-4B \
+  --served-model-name DeltaStreamer-VLM \
+  --host 127.0.0.1 --port 8000 \
+  --tensor-parallel-size 1 \
+  --dtype bfloat16 \
+  --max-model-len 32768 \
+  --max-num-seqs 1 \
+  --limit-mm-per-prompt '{"image":8}' \
+  --reasoning-parser qwen3
+```
+
+使用 2B 或 9B 时，选择下面对应的下载命令，并将启动命令中的 `models/Qwen3.5-4B` 替换为该模型的目录：
+
+```bash
+# 选择一：2B
+hf download Qwen/Qwen3.5-2B --local-dir models/Qwen3.5-2B
+
+# 选择二：9B
+hf download Qwen/Qwen3.5-9B --local-dir models/Qwen3.5-9B
+```
+
+在同一端口替换模型前，先停止之前的模型服务。保留 `--served-model-name DeltaStreamer-VLM`，网页端的模型名称就不需要跟着改。按下文安装网页服务后，三个小模型均可在 `demo/.env` 中使用：
+
+```dotenv
+DEMO_BACKEND=local
+DEMO_API_BASE_URL=http://127.0.0.1:8000/v1
+DEMO_MODEL=DeltaStreamer-VLM
+DEMO_API_KEY=
+DEMO_EXTRA_BODY_JSON={"chat_template_kwargs":{"enable_thinking":false}}
+```
+
+显式设置 `enable_thinking:false`，让模型直接生成结构化观察或答案。Qwen3.5-4B 和 9B 默认启用 thinking，2B 默认关闭。这里的单卡示例使用 32K 上下文、单并发，每次最多八张图片；实际显存需求还包含视觉计算和上下文缓存，不保证某个固定显存容量一定能运行。显存不足时，可改用 2B、缩短上下文，或将模型分配到更多兼容 GPU。启动后先进行网页连接测试，再用短视频验证所选配置。
 
 ## 方案二：使用远程视觉 API
 

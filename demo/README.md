@@ -4,9 +4,11 @@ Upload a video, let DeltaStreamer observe changes and organize its memory, then 
 
 **[中文部署说明](README.zh-CN.md) · [Main repository](../README.md)**
 
-There are two deployment options. **Local inference** runs Qwen3.6-27B on your GPU server and keeps model requests on that server. **Remote inference** connects the same application to an OpenAI-compatible vision API; it needs no local model weights or GPU. Choose one model backend, then install and start the web application.
+There are two deployment options. **Local inference** runs Qwen3.6-27B or a smaller Qwen3.5 vision model on your GPU server and keeps model requests on that server. **Remote inference** connects the same application to an OpenAI-compatible vision API; it needs no local model weights or GPU. Choose one model backend, then install and start the web application.
 
 ## Local model deployment
+
+Choose one model. For a smaller download and single-GPU setup, go directly to [the 2B / 4B / 9B examples](#3-optional-use-a-smaller-vision-model); you do not need to download 27B first.
 
 ### 1. Download Qwen3.6-27B
 
@@ -53,6 +55,59 @@ curl --fail http://127.0.0.1:8000/v1/models
 ```
 
 The output should contain `DeltaStreamer-VLM`. When the web application runs on another machine, point it to the model server's reachable address; `127.0.0.1` always means the machine running that process. Use a private network or an authenticated tunnel for a separate server.
+
+### 3. Optional: use a smaller vision model
+
+For a lighter local deployment, choose one of these official post-trained checkpoints. All three include a vision encoder and can accept the demo's frame inputs. **4B is a useful starting configuration**; 2B reduces model size further, while 9B provides a larger alternative to try. These are configuration examples; the smaller checkpoints have not yet been validated end-to-end with DeltaStreamer, and their accuracy and latency are not the paper's reported results.
+
+| Model | Size | Local directory |
+| --- | --- | --- |
+| [Qwen/Qwen3.5-2B](https://huggingface.co/Qwen/Qwen3.5-2B) | 2B | `models/Qwen3.5-2B` |
+| [Qwen/Qwen3.5-4B](https://huggingface.co/Qwen/Qwen3.5-4B) | 4B | `models/Qwen3.5-4B` |
+| [Qwen/Qwen3.5-9B](https://huggingface.co/Qwen/Qwen3.5-9B) | 9B | `models/Qwen3.5-9B` |
+
+From the repository root, create the model environment if you have not already done so, and download **one** checkpoint. For 4B:
+
+```bash
+python3 -m venv .venv-model
+source .venv-model/bin/activate
+python -m pip install --upgrade pip
+python -m pip install "huggingface_hub>=0.34" uv
+hf download Qwen/Qwen3.5-4B --local-dir models/Qwen3.5-4B
+uv pip install "vllm==0.19.1" --torch-backend=auto
+
+CUDA_VISIBLE_DEVICES=0 vllm serve models/Qwen3.5-4B \
+  --served-model-name DeltaStreamer-VLM \
+  --host 127.0.0.1 --port 8000 \
+  --tensor-parallel-size 1 \
+  --dtype bfloat16 \
+  --max-model-len 32768 \
+  --max-num-seqs 1 \
+  --limit-mm-per-prompt '{"image":8}' \
+  --reasoning-parser qwen3
+```
+
+For 2B or 9B, use the corresponding download command below, then replace `models/Qwen3.5-4B` in the serving command with that checkpoint's directory:
+
+```bash
+# Alternative 1: 2B
+hf download Qwen/Qwen3.5-2B --local-dir models/Qwen3.5-2B
+
+# Alternative 2: 9B
+hf download Qwen/Qwen3.5-9B --local-dir models/Qwen3.5-9B
+```
+
+Stop the previous model server before replacing it on port 8000. Keep `--served-model-name DeltaStreamer-VLM`, so the web application's model name remains the same. After installing the web application below, use these settings in `demo/.env` for any of the three checkpoints:
+
+```dotenv
+DEMO_BACKEND=local
+DEMO_API_BASE_URL=http://127.0.0.1:8000/v1
+DEMO_MODEL=DeltaStreamer-VLM
+DEMO_API_KEY=
+DEMO_EXTRA_BODY_JSON={"chat_template_kwargs":{"enable_thinking":false}}
+```
+
+The explicit `enable_thinking:false` requests direct structured responses. Qwen3.5-4B and 9B otherwise enable thinking by default; 2B defaults to non-thinking. These single-GPU commands use a 32K context, one concurrent sequence and up to eight images per request. Actual memory requirements also include visual processing and the context cache, so no particular GPU capacity is guaranteed. If memory is insufficient, try 2B, reduce the context limit, or distribute the model across compatible GPUs. Then run the UI's connection test and a short uploaded video to check your chosen configuration.
 
 ## Remote vision API
 
