@@ -11,6 +11,10 @@
 <sup>2</sup> ByteDance Inc. &emsp; <sup>3</sup> IQuest Research<br>
 <sup>4</sup> Institute of Automation, Chinese Academy of Sciences
 
+[![Project Page](https://img.shields.io/badge/Project_Page-6A5ACD?logo=googlechrome&logoColor=white)](https://bbbbchan.github.io/DeltaStreamer/)
+![arXiv](https://img.shields.io/badge/arXiv-B31B1B?logo=arxiv&logoColor=white "Link coming soon")
+![Hugging Face](https://img.shields.io/badge/Hugging_Face-FFD21E?logo=huggingface&logoColor=black "Link coming soon")
+
 [![License](https://img.shields.io/badge/License-CC_BY--NC_4.0-blue.svg)](LICENSE)
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
 ![Framework](https://img.shields.io/badge/Framework-vLLM%20%2B%20ms--swift-green)
