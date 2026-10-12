@@ -19,7 +19,7 @@
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
 ![Framework](https://img.shields.io/badge/Framework-vLLM%20%2B%20ms--swift-green)
 
-**[Overview](#overview) · [Interactive Demo](demo/README.md) · [Getting Started](#getting-started) · [Evaluation](#evaluation) · [Results](#results) · [Citation](#citation)**
+**[Overview](#overview) · [Getting Started](#getting-started) · [Evaluation](#evaluation) · [Deploy Interactive Demo](demo/README.md) ·[Results](#results) · [Citation](#citation)**
 
 </div>
 
@@ -51,11 +51,7 @@ The first example uses recorded changes to recover an action sequence. In the se
   <img src="assets/qualitative_cases.png" width="100%" alt="Two paper examples showing change-aware memory and query-driven recovery of missing visual details.">
 </div>
 
-## Interactive Demo
 
-Upload your own video, choose when to ask a question, and inspect the agent's observations, visual deltas, structured memory, plan and answer in an English or Chinese interface. The demo uses the repository's agent with either a locally served vision model or a remote OpenAI-compatible vision API.
-
-**[Deployment guide](demo/README.md) · [中文部署说明](demo/README.zh-CN.md)** — model download, local/API configuration, video upload and interactive questions are documented in the independent `demo/` folder.
 
 ## Getting Started
 
@@ -169,6 +165,14 @@ python scripts/score_streamingbench.py outputs/streamingbench \
 ```
 
 OVO-Bench reports per-task scores and task-macro group averages. StreamingBench uses sample-level accuracy, with content and timing checks for proactive output. The scripts also audit missing, duplicate and malformed records. When running selected tasks, use a matching subset annotation for strict completeness checks.
+
+
+## Interactive Demo
+
+Upload your own video, choose when to ask a question, and inspect the agent's observations, visual deltas, structured memory, plan and answer in an English or Chinese interface. The demo uses the repository's agent with either a locally served vision model or a remote OpenAI-compatible vision API.
+
+**[Deployment guide](demo/README.md) · [中文部署说明](demo/README.zh-CN.md)** — model download, local/API configuration, video upload and interactive questions are documented in the independent `demo/` folder.
+
 
 ## Results
 
