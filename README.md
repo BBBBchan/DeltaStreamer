@@ -241,7 +241,7 @@ DeltaStreamer is licensed under [CC BY-NC 4.0](LICENSE). The ms-swift compatibil
 
 ## Contact
 
-For questions about the implementation, please open an issue in this repository.
+For questions about the implementation, please feel free to open an issue in this repository, or contact me at `sbysbysby123@gmail.com`.
 
 ## Acknowledgements
 
