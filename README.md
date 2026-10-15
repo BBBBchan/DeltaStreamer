@@ -12,8 +12,8 @@
 <sup>4</sup> Institute of Automation, Chinese Academy of Sciences
 
 [![Project Page](https://img.shields.io/badge/Project_Page-6A5ACD?logo=googlechrome&logoColor=white)](https://bbbbchan.github.io/DeltaStreamer/)
-![arXiv](https://img.shields.io/badge/arXiv-B31B1B?logo=arxiv&logoColor=white "Link coming soon")
-![Hugging Face](https://img.shields.io/badge/Hugging_Face-FFD21E?logo=huggingface&logoColor=black "Link coming soon")
+[![arXiv](https://img.shields.io/badge/arXiv-2610.19849-B31B1B?logo=arxiv&logoColor=white)](https://arxiv.org/pdf/2610.19849)
+[![Hugging Face](https://img.shields.io/badge/Hugging_Face-FFD21E?logo=huggingface&logoColor=black)](https://huggingface.co/papers/2610.19849)
 
 [![License](https://img.shields.io/badge/License-CC_BY--NC_4.0-blue.svg)](LICENSE)
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
@@ -228,16 +228,16 @@ This compact release preserves the current inference decisions, prompts and memo
 If you find this work useful, please cite:
 
 ```bibtex
-@misc{sun2026deltastreamer,
-  title  = {DeltaStreamer: Towards Human-Like Agentic Streaming Video Understanding},
-  author = {Boyuan Sun and Deshui Miao and Wenzhao Gao and Shaoyong Jia and
-            Shaohui Jiao and Chi Liu and Yan Shu and Derek Li and Bryan Dai and
-            Shengsheng Qian and Qibin Hou},
-  year   = {2026}
+@article{sun2026deltastreamer,
+  title   = {DeltaStreamer: Towards Human-Like Agentic Streaming Video Understanding},
+  author  = {Sun, Boyuan and Miao, Deshui and Gao, Wenzhao and Jia, Shaoyong and
+             Jiao, Shaohui and Liu, Chi and Shu, Yan and Li, Derek and Dai, Bryan and
+             Qian, Shengsheng and Hou, Qibin},
+  journal = {arXiv preprint arXiv:2610.19849},
+  year    = {2026},
+  url     = {https://arxiv.org/abs/2610.19849}
 }
 ```
-
-The arXiv link and identifier will be added when available.
 
 ## License
 
