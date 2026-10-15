@@ -14,6 +14,8 @@
 [![Project Page](https://img.shields.io/badge/Project_Page-6A5ACD?logo=googlechrome&logoColor=white)](https://bbbbchan.github.io/DeltaStreamer/)
 [![arXiv](https://img.shields.io/badge/arXiv-2610.19849-B31B1B?logo=arxiv&logoColor=white)](https://arxiv.org/pdf/2610.19849)
 [![Hugging Face](https://img.shields.io/badge/Hugging_Face-FFD21E?logo=huggingface&logoColor=black)](https://huggingface.co/papers/2610.19849)
+[![Bilibili](https://img.shields.io/badge/Bilibili-00A1D6?logo=bilibili&logoColor=white)](https://b23.tv/dHFBXjO)
+[![Xiaohongshu](https://img.shields.io/badge/Xiaohongshu-FF2442?logo=xiaohongshu&logoColor=white)](https://www.xiaohongshu.com/discovery/item/6ad0626c0000000014003273?source=webshare&xhsshare=pc_web&xsec_token=ABEw_n4nzssF438oECyiP-Ab8_Gk-5lGvClzGSTnyKviI=&xsec_source=pc_share)
 
 [![License](https://img.shields.io/badge/License-CC_BY--NC_4.0-blue.svg)](LICENSE)
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
