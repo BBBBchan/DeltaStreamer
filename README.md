@@ -4,7 +4,7 @@
 
 ### Towards Human-Like Agentic Streaming Video Understanding
 
-[**Boyuan Sun**](https://bbbbchan.github.io)<sup>1</sup> · **Deshui Miao**<sup>2</sup> · **Wenzhao Gao**<sup>2</sup> · **Shaoyong Jia**<sup>2</sup> · **Shaohui Jiao**<sup>2</sup><br>
+[**Boyuan Sun**](https://bbbbchan.github.io)<sup>1</sup> · [**Deshui Miao**](https://yahooo-m.github.io/)<sup>2</sup> · **Wenzhao Gao**<sup>2</sup> · **Shaoyong Jia**<sup>2</sup> · **Shaohui Jiao**<sup>2</sup><br>
 **Chi Liu**<sup>3</sup> · **Yan Shu**<sup>3</sup> · **Derek Li**<sup>3</sup> · **Bryan Dai**<sup>3</sup> · **Shengsheng Qian**<sup>4</sup> · [**Qibin Hou**](https://houqb.github.io/)<sup>1</sup>
 
 <sup>1</sup> VCIP, Nankai University<br>
