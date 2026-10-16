@@ -15,6 +15,7 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2610.19849-B31B1B?logo=arxiv&logoColor=white)](https://arxiv.org/pdf/2610.19849)
 [![Hugging Face](https://img.shields.io/badge/Hugging_Face-FFD21E?logo=huggingface&logoColor=black)](https://huggingface.co/papers/2610.19849)
 [![Application: AI-Tongdan](https://img.shields.io/badge/Application-AI--Tongdan-299D90?logo=github&logoColor=white)](https://github.com/BBBBchan/AI-Tongdan)
+[![AI-Tongdan Video](https://img.shields.io/badge/AI--Tongdan_Video-00A1D6?logo=bilibili&logoColor=white)](https://www.bilibili.com/video/BV1GqJD6UE9e)
 [![Bilibili](https://img.shields.io/badge/Bilibili-00A1D6?logo=bilibili&logoColor=white)](https://b23.tv/dHFBXjO)
 [![Xiaohongshu](https://img.shields.io/badge/Xiaohongshu-FF2442?logo=xiaohongshu&logoColor=white)](https://www.xiaohongshu.com/discovery/item/6ad0626c0000000014003273?source=webshare&xhsshare=pc_web&xsec_token=ABEw_n4nzssF438oECyiP-Ab8_Gk-5lGvClzGSTnyKviI=&xsec_source=pc_share)
 
@@ -26,7 +27,7 @@
 
 </div>
 
-> **Application released:** [AI同担 (AI-Tongdan)](https://github.com/BBBBchan/AI-Tongdan) is a livestream companion built on DeltaStreamer, with continuous observation, contextual Q&A, and danmaku suggestions.
+> **Application released:** [AI同担 (AI-Tongdan)](https://github.com/BBBBchan/AI-Tongdan) is a livestream companion built on DeltaStreamer, with continuous observation, contextual Q&A, and danmaku suggestions. [Watch the AI-Tongdan video on Bilibili →](https://www.bilibili.com/video/BV1GqJD6UE9e)
 
 ## Overview
 
