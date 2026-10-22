@@ -20,7 +20,6 @@
 [![Xiaohongshu](https://img.shields.io/badge/Xiaohongshu-FF2442?logo=xiaohongshu&logoColor=white)](https://www.xiaohongshu.com/discovery/item/6ad0626c0000000014003273?source=webshare&xhsshare=pc_web&xsec_token=ABEw_n4nzssF438oECyiP-Ab8_Gk-5lGvClzGSTnyKviI=&xsec_source=pc_share)
 
 [![License](https://img.shields.io/badge/License-CC_BY--NC_4.0-blue.svg)](LICENSE)
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
 ![Framework](https://img.shields.io/badge/Framework-vLLM%20%2B%20ms--swift-green)
 [![Papers with Code: StreamingBench](https://paperswithcode.co/api/v1/papers/2610.19849/leaderboard-badge.svg?eval=40435&live=1)](https://paperswithcode.co/api/v1/papers/2610.19849/leaderboard-badge-link?eval=40435)
 [![Papers with Code: OVOBench](https://paperswithcode.co/api/v1/papers/2610.19849/leaderboard-badge.svg?eval=40434&live=1)](https://paperswithcode.co/api/v1/papers/2610.19849/leaderboard-badge-link?eval=40434)
